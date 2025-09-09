@@ -19,8 +19,6 @@ It also supports **exporting** and **importing** notes, making it easy to share 
 - 📥 Import notes back into the extension.
 - 🎨 Clean and minimal interface.
 
-- for better understanding (A full tutorial): https://youtu.be/U1GA5bEKxuU
-
 ---
 
 ## 📦 Installation
@@ -29,6 +27,8 @@ It also supports **exporting** and **importing** notes, making it easy to share 
 3. Enable Developer mode (top-right corner).
 4. Click on Load unpacked and select the extension folder.
 5. Done! 🎉
+
+- for better understanding (A full tutorial): https://youtu.be/U1GA5bEKxuU
 
 ---
 
