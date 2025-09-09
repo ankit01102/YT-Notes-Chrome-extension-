@@ -66,5 +66,12 @@ For major changes, please open an issue first to discuss what you’d like to ch
 
 ---
 
+## 💡 Inspiration
+I got this idea from PW (physics wallah). They use the same feature like this in their video lectures, so im used to this feature but when i watch lectures in youtube it becomes difficult for me to make tracks of topics
+and question through out that whole lectures so i made this small extension which is minimal but very usefull...!!
+I didn't had money to upload it on chrome webstore that's why i posted it here.
+So make usefull of it,
+Thanks.
+
 ## 📄 License
 This project is licensed under the [MIT License]
