@@ -1,0 +1,35 @@
+{
+  "manifest_version": 3,
+  "name": "YouTube Notes (Timestamped)",
+  "version": "1.0.0",
+  "description": "Add timestamped notes to YouTube videos, auto-pause on note, sidebar to jump back. Cloud-sync via chrome.storage.sync. And you can export/import your notes as JSON files.",
+  "permissions": [
+    "storage"
+  ],
+  "host_permissions": [
+    "https://www.youtube.com/*",
+    "https://youtube.com/*",
+    "https://m.youtube.com/*"
+  ],
+  "content_scripts": [
+    {
+      "matches": [
+        "https://www.youtube.com/*",
+        "https://youtube.com/*",
+        "https://m.youtube.com/*"
+      ],
+      "js": [
+        "content/content.js"
+      ],
+      "css": [
+        "content/styles.css"
+      ],
+      "run_at": "document_idle"
+    }
+  ],
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  }
+}

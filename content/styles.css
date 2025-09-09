@@ -1,0 +1,235 @@
+/* Shadow DOM is used for the button; these are for the sidebar & modal overlay */
+#yn-sidebar {
+  position: fixed;
+  top: 64px;
+  right: 0;
+  width: 360px;
+  max-width: 90vw;
+  height: calc(100vh - 64px);
+  background: #111;
+  color: #eee;
+  border-left: 1px solid #333;
+  z-index: 999999; /* above YT UI */
+  box-shadow: -4px 0 16px rgba(0,0,0,0.35);
+  display: none;
+  flex-direction: column;
+  font-family: Roboto, Arial, sans-serif;
+}
+
+#yn-sidebar.visible { display: flex; }
+
+#yn-sidebar .yn-header {
+  padding: 10px 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #333;
+  gap: 8px;
+}
+
+#yn-sidebar .yn-title {
+  font-size: 14px;
+  font-weight: 600;
+  flex: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Action buttons (Export, Import, Close) */
+#yn-sidebar .yn-actions {
+  display: flex;
+  gap: 6px;
+}
+
+#yn-sidebar .yn-actions button {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  background: transparent;
+  border: 1px solid #555;
+  padding: 6px 10px;
+  border-radius: 8px;
+  color: #eee;
+  cursor: pointer;
+  font-size: 12px;
+}
+
+#yn-sidebar .yn-actions button:hover {
+  background: #1f1f1f;
+}
+
+#yn-sidebar .yn-actions .yn-icon {
+  font-size: 14px;
+}
+
+#yn-sidebar .yn-actions .yn-label {
+  font-size: 12px;
+}
+
+#yn-sidebar .yn-list {
+  flex: 1;
+  overflow: auto;
+  padding: 8px 10px;
+}
+
+#yn-sidebar .yn-note {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 8px;
+  align-items: start;
+  padding: 8px;
+  border: 1px solid #333;
+  border-radius: 10px;
+  margin-bottom: 8px;
+  background: #0c0c0c;
+}
+
+.yn-ts {
+  font-variant-numeric: tabular-nums;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.yn-text { white-space: pre-wrap; line-height: 1.4; }
+
+/* Row actions (delete, edit etc.) */
+.yn-row-actions {
+  opacity: 0;
+  transition: opacity 0.2s;
+  display: flex;
+  gap: 6px;
+}
+
+.yn-note:hover .yn-row-actions {
+  opacity: 1;
+}
+
+.yn-row-actions button {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  color: #777;
+  font-size: 14px;
+}
+
+.yn-row-actions button:hover {
+  color: #ffd54d; /* yellow highlight for edit by default */
+}
+
+.yn-row-actions .yn-del:hover {
+  color: #e74c3c; /* red for delete */
+}
+
+/* Textarea in edit mode */
+.yn-text textarea.yn-edit-input {
+  width: 100%;
+  background: #0c0c0c;
+  color: #eee;
+  border: 1px solid #555;
+  border-radius: 6px;
+  padding: 6px;
+  font-size: 14px;
+  resize: vertical;
+}
+
+/* Footer */
+#yn-sidebar .yn-footer {
+  font-size: 12px;
+  color: #fff;
+  padding: 8px 12px;
+  border-top: 1px solid #333;
+  text-align: left;
+  opacity: 0.7;
+}
+
+/* Modal overlay */
+#yn-modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.5);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 999999;
+}
+
+#yn-modal.visible { display: flex; }
+
+#yn-modal .yn-card {
+  width: min(640px, 92vw);
+  background: #111;
+  color: #eee;
+  border: 1px solid #333;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+  overflow: hidden;
+}
+
+#yn-modal .yn-card .yn-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 12px;
+  border-bottom: 1px solid #333;
+}
+
+#yn-modal .yn-card .yn-card-body {
+  padding: 12px;
+}
+
+#yn-modal textarea {
+  width: 100%;
+  min-height: 140px;
+  background: #0c0c0c;
+  color: #eee;
+  border: 1px solid #333;
+  border-radius: 8px;
+  padding: 10px;
+  resize: vertical;
+}
+
+#yn-modal .yn-card .yn-card-footer {
+  padding: 10px 12px;
+  border-top: 1px solid #333;
+  display: flex;
+  gap: 8px;
+  justify-content: flex-end;
+}
+
+#yn-modal button {
+  background: #222;
+  color: #eee;
+  border: 1px solid #555;
+  border-radius: 10px;
+  padding: 8px 12px;
+  cursor: pointer;
+}
+
+#yn-modal button.primary {
+  background: #ffd54d; /* yellow */
+  color: #111;
+  border-color: #e5c240;
+  font-weight: 700;
+}
+#yn-modal button.primary:hover { filter: brightness(0.95); }
+
+/* Small helper tooltip style for the injected header button */
+.yn-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 10px;
+  border-radius: 999px;
+  border: 1px solid #d6b63b;
+  background: #ffeb7a;
+  color: #202020;
+  font-weight: 700;
+  cursor: pointer;
+  user-select: none;
+  margin-right: 8px; /* 👈 adds space between buttons */
+}
+
+.yn-btn:hover { filter: brightness(0.97); }
+.yn-btn .yn-dot { width: 18px; height: 18px; border-radius: 4px; background: #ffd54d; border: 1px solid #cfae3b; }
+.yn-btn .yn-label { font-size: 12px; }
